@@ -41,9 +41,8 @@ namespace AppInsightsTutorial
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            var ev = new EventTelemetry("button1");
-            ev.Properties["click_counter"] = (++button1Counter).ToString();
-            tc.TrackEvent(ev);
+            var metric = new MetricTelemetry("button1", (++button1Counter));
+            tc.TrackMetric(metric);
             tc.Flush();
         }
 
